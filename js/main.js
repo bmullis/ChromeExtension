@@ -19,7 +19,10 @@ chrome.windows.getCurrent(function (currentWindow) {
 			$('#feeds').append('<div id="feed-results"></div>');
 			$.each(feeds, function(key, val) {
 				link = val;
-			  $('#feed-results').append("<div class='feed-result'><a><img src=\"../rss-icon.png\" /></a> <div class='inner-feed-link'><a class=\"rss\">" + val + "</a></div><img src='../images/green-check.png' class='check'></div>");
+				if (val.length > 52) {
+					val = val.slice(0,52) + '...';
+				}
+			  	$('#feed-results').append("<div class='feed-result'><a><img src=\"../rss-icon.png\" /></a><div class='inner-feed-link'><a class=\"rss\">" + val + "</a></div><img src='../images/green-check.png' class='check'></div>");
 			});
 			$('#feeds').append("<div class='import-btns'><a class='btn btn-md'>Import Selected Feeds</a></div>");
 			/*
