@@ -12,6 +12,7 @@ chrome.windows.getCurrent(function (currentWindow) {
 		var feeds = background.getFeeds(activeTabID);
 		if (feeds) {
 			var link;
+			var name;
 			var plural = '';
 			if (feeds.length > 1) { plural = 's' };
 			$('#feeds').append('<h2 id="sub-title">We found ' + feeds.length + ' feed' + plural +  ' on this site</h2>');
@@ -19,17 +20,16 @@ chrome.windows.getCurrent(function (currentWindow) {
 			$('#feeds').append('<div id="feed-results"></div>');
 			$.each(feeds, function(key, val) {
 				link = val;
-				if (val.length > 52) {
-					val = val.slice(0,52) + '...';
+				name = val;
+				if (name.length > 52) {
+					name = name.slice(0,52) + '...';
 				}
-			  	$('#feed-results').append("<div class='feed-result'><a><img src=\"../rss-icon.png\" /></a><div class='inner-feed-link'><a class=\"rss\">" + val + "</a></div><img src='../images/green-check.png' class='check'></div>");
+			  	$('#feed-results').append("<div class='feed-result'><img src=\"../rss-icon.png\" /><div class='inner-feed-link'><a  href='" + link + "' class=\"rss\">" + name + "</a></div><img src='../images/green-check.png' class='check'></div>");
 			});
 			$('#feeds').append("<div class='import-btns'><a class='btn btn-md'>Import Selected Feeds</a></div>");
-			/*
 			$("#feeds a").click(function() {
 				chrome.tabs.create({url: this.href});
 			});
-			*/
 			$('.feed-result').on('click', function() {
 				$(this).toggleClass('selected');
 				$(this).children('img').toggle();
