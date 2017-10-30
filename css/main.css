@@ -4,30 +4,116 @@
 */
 
 div#main-outer {
-    width: 300px;
-    margin: 5px;
-    background: #DDD;
-    border-radius: 5px;
+    background: #ffffff;
+    width: 500px;
 }
 
 div#main-inner {
-    padding: 8px;
+    background-color: #f7f7f7;
+    padding: 40px 15px;
 }
 
-div#main-title {
-    font-size: 16px;
-    text-align: center;
-    font-weight: bold;
-}
-
-img#main-image {
+img#main-img {
     display: block;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 30px auto;
 }
 
-div#main-about-text {
-    margin-top: 10px;
+h1#main-title {
+    font-size: 16px;
+    font-weight: 800;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+h2#sub-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+}
+
+h3#subsub-title {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.feed-result {
+    background-color: #ffffff;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+    padding: 10px 15px;
+    transition: all .2s;
+}
+
+.feed-result:last-of-type {
+    margin-bottom: 0;
+}
+
+.feed-result .btn {
+    background: #D05827;
+    border: none;
+    float: right;
+    padding: .5em 1em;
+    margin-top: -2px;
+}
+
+.feed-check {
+    background: red;
+    float: right;
+    margin-top: 8px !important;
+}
+
+.check {
+    display: none;
+    float: right;
+    margin-top: 2px;
+    width: 25px;
+}
+
+#feed-results {
+    border-radius: 3px;
+    padding: .1em 0 1px 0;
+}
+
+.feed-result:hover {
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+}
+
+.feed-result .inner-feed-link {
+    display: inline;
+    line-height: 1.1em;
+    max-width: 300px;
+    margin-top: 8px;
+    overflow-x: hidden;
+}
+
+.feed-result a img {
+    padding-right: 10px;
+    text-align: center;
+    width: 30px;
+}
+
+.selected {
+    border: 1px solid orange !important;
+}
+
+.import-btns a {
+    border: none;
+    background: #ED832F;
+    color: white;
+    display: block;
+    font-size: 1.2em;
+    margin-top: 17px;
+    padding: .6em 0;
+    text-shadow: none;
+}
+
+.import-btns a:hover {
+    background: #FD933F;
+    color: white;
+    transition: all .2s;
 }

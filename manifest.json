@@ -1,29 +1,34 @@
 {
-    //manifest spec: http://developer.chrome.com/extensions/manifest.html
-    //required
-    "name": "Chrome Extension Template",
-    "version": "1.0",
-    "manifest_version": 2,
-
-    //recommended
-    "description": "Chrome extension description written here.",
-    "icons": {
-        "19": "images/icon_19.png",
-        "38": "images/icon_38.png",
-        "128": "images/icon_128.png"
-    },
-
-    //required
-    "browser_action": {
-        "default_title": "browser_action: default_title",
-        "default_icon": {
-            "19": "images/icon_19.png",
-            "38": "images/icon_38.png"
-        },
-        "default_popup": "html/main.html"
-    },
-
-    //additional
-    "options_page": "html/options.html",
-    "homepage_url": "http://yourdomainhere.com/"
+  "browser_action": {
+    "default_icon": "swansphere.png",
+    "default_popup": "html/main.html",
+    "default_title": "Swan Island Networks"
+  },
+  "description": "Detect potential RSS feeds, social media, and other useful channels for TX360.",
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "name": "Swan Island Networks - TX360 RSS Feed Finder",
+  "permissions": [
+    "tabs",
+    "http://*/*"
+  ],
+  "icons": {
+    "48": "swansphere.png",
+    "128": "swansphere.png",
+    "16": "swansphere.png"
+  },
+  "content_scripts": [{
+    "matches": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "js": [
+      "js/jquery-1.9.1.js",
+      "js/contentScript.js"
+    ]
+  }],
+  "manifest_version": 2,
+  "version": "0.3"
 }
