@@ -91,7 +91,7 @@ h3#subsub-title {
     overflow-x: hidden;
 }
 
-.feed-result img {
+.feed-result img.rss-icon {
     padding-right: 10px;
     text-align: center;
     width: 30px;

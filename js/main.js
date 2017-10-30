@@ -24,7 +24,7 @@ chrome.windows.getCurrent(function (currentWindow) {
 				if (name.length > 52) {
 					name = name.slice(0,52) + '...';
 				}
-			  	$('#feed-results').append("<div class='feed-result'><img src=\"../rss-icon.png\" /><div class='inner-feed-link'><a  href='" + link + "' class=\"rss\">" + name + "</a></div><img src='../images/green-check.png' class='check'></div>");
+			  	$('#feed-results').append("<div class='feed-result'><img class='rss-icon' src='../rss-icon.png'><div class='inner-feed-link'><a  href='" + link + "' class=\"rss\">" + name + "</a></div><img src='../images/green-check.png' class='check'></div>");
 			});
 			$('#feeds').append("<div class='import-btns'><a class='btn btn-md'>Import Selected Feeds</a></div>");
 			$("#feeds a").click(function() {
@@ -32,7 +32,7 @@ chrome.windows.getCurrent(function (currentWindow) {
 			});
 			$('.feed-result').on('click', function() {
 				$(this).toggleClass('selected');
-				$(this).children('img').toggle();
+				$(this).children('.check').toggle();
 			});
 		} else {
 			$('#feeds').append('<h2 id="sub-title">We couldn\'t find any feeds on this site.</h2>');
