@@ -19,12 +19,19 @@ chrome.windows.getCurrent(function (currentWindow) {
 			$('#feeds').append('<h3 id="subsub-title">Click to choose the feeds you want to import into TX360:</h3>');
 			$('#feeds').append('<div id="feed-results"></div>');
 			$.each(feeds, function(key, val) {
-				link = val;
-				name = val;
+				link = val.link;
+				name = val.link;
+				type = val.type;
+				var image;
+				if (type == 'twitter') {
+					image = '../tweeterbird.png';
+				} else {
+					image = '../rss-icon.png';
+				}
 				if (name.length > 52) {
 					name = name.slice(0,52) + '...';
 				}
-			  	$('#feed-results').append("<div class='feed-result'><img class='rss-icon' src='../rss-icon.png'><div class='inner-feed-link'><a  href='" + link + "' class=\"rss\">" + name + "</a></div><img src='../images/green-check.png' class='check'></div>");
+			  	$('#feed-results').append("<div class='feed-result'><img class='rss-icon' src='" + image + "'><div class='inner-feed-link'><a  href='" + link + "' class=\"rss\">" + name + "</a></div><img src='../images/green-check.png' class='check'></div>");
 			});
 			$('#feeds').append("<div class='import-btns'><a class='btn btn-md'>Import Selected Feeds</a></div>");
 			$("#feeds a").click(function() {

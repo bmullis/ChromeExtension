@@ -8,9 +8,17 @@ $(document).ready(function() {
   	var feeds = [];
     //Find all the RSS link elements
     $('link[rel=alternate]').filter('[type*="rss"],[type*="atom"],[type*="rdf"]').each(function() {
-      feeds.push(this.href);
+        feeds.push({
+            type: 'rss',
+            link: this.href
+        });
+    });
+    $('meta[name="twitter:site"]').each(function() {
+        feeds.push({
+            type: 'twitter',
+            link: this.content
+        });
     });
     return feeds;
   }
-
 });
